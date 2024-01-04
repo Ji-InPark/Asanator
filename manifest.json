@@ -1,6 +1,6 @@
 {
   "name": "Asanator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "An extension to copy link as hyperlink",
   "manifest_version": 3,
   "action": {
@@ -27,6 +27,6 @@
     }
   ],
   "host_permissions": [
-    "https://leetcode.com/problems/*"
+    "https://app.asana.com/*"
   ]
 }

@@ -1,16 +1,14 @@
 function copyLink(observer) {
   const originalCopyLinkElement = document.querySelector('div.TaskPaneToolbar-copyLinkButton');
-  if (!originalCopyLinkElement) return;
-
-  observer.disconnect();
+  const newCopyLinkElement = document.querySelector('div.TaskPaneToolbar-copyLinkButton--hyperlink');
+  if (!originalCopyLinkElement || newCopyLinkElement) return;
+  
   const hyperlinkCopyLinkElement = originalCopyLinkElement.cloneNode(true)
 
   originalCopyLinkElement.style.display = 'none';
   hyperlinkCopyLinkElement.removeEventListener('click', null);
   hyperlinkCopyLinkElement.removeAttribute('class');
   hyperlinkCopyLinkElement.classList.add('TaskPaneToolbar-copyLinkButton--hyperlink');
-  hyperlinkCopyLinkElement.style.margin = '10px';
-  hyperlinkCopyLinkElement.style.cursor = 'pointer';
   originalCopyLinkElement.parentElement.insertBefore(hyperlinkCopyLinkElement, originalCopyLinkElement);
   hyperlinkCopyLinkElement.addEventListener('click', () => {
     const taskTitle = document.querySelector('div.TitleInput-objectName > textarea').textContent;
@@ -33,6 +31,30 @@ function copyLink(observer) {
         navigator.clipboard.write([new ClipboardItem({[TYPE]: BLOB})])
       });
   });
+
+  const css = `
+    .TaskPaneToolbar-copyLinkButton--hyperlink {
+      margin: 0px 0px 0px 8px;
+      cursor: pointer;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+    }
+    
+    .TaskPaneToolbar-copyLinkButton--hyperlink:hover {
+      background-color: #2E3031;
+    }
+    
+    .TaskPaneToolbar-copyLinkButton--hyperlink:hover > svg {
+      fill: #fff;
+    }
+   `
+  const style = document.createElement('style');
+  style.appendChild(document.createTextNode(css));
+  document.getElementsByTagName('head')[0].appendChild(style);
 }
 
 const observer = new MutationObserver(mutationList =>
