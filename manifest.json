@@ -1,0 +1,32 @@
+{
+  "name": "Asanator",
+  "version": "1.0.1",
+  "description": "An extension to copy link as hyperlink",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/assets/icons/JinFox.png",
+      "32": "/assets/icons/JinFox.png",
+      "48": "/assets/icons/JinFox.png",
+      "128": "/assets/icons/JinFox.png"
+    }
+  },
+  "permissions": [
+    "scripting"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://app.asana.com/*"
+      ],
+      "js": [
+        "copyLink.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "host_permissions": [
+    "https://leetcode.com/problems/*"
+  ]
+}
