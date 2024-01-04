@@ -6,10 +6,10 @@
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "/assets/icons/JinFox.png",
-      "32": "/assets/icons/JinFox.png",
-      "48": "/assets/icons/JinFox.png",
-      "128": "/assets/icons/JinFox.png"
+      "16": "/assets/icons/Asanator.png",
+      "32": "/assets/icons/Asanator.png",
+      "48": "/assets/icons/Asanator.png",
+      "128": "/assets/icons/Asanator.png"
     }
   },
   "permissions": [
