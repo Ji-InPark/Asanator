@@ -16,13 +16,13 @@ function copyLink(observer) {
     navigator.clipboard
       .readText()
       .then((link) => {
-        const tempDiv = document.createElement('div');
+        document.querySelector('a.Hyperlink')?.remove();
+
         const hyperlink = document.createElement('a');
         hyperlink.classList.add('Hyperlink');
         hyperlink.href = link;
         hyperlink.textContent = taskTitle;
-        tempDiv.appendChild(hyperlink);
-        document.body.appendChild(tempDiv);
+        document.body.appendChild(hyperlink);
 
         const html = document.querySelector('a.Hyperlink');
         const range = document.createRange();
