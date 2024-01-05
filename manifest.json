@@ -1,6 +1,6 @@
 {
   "name": "Asanator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "An extension to copy link as hyperlink",
   "manifest_version": 3,
   "action": {

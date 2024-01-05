@@ -21,14 +21,19 @@ function copyLink(observer) {
         hyperlink.classList.add('Hyperlink');
         hyperlink.href = link;
         hyperlink.textContent = taskTitle;
-        hyperlink.style.display = 'none';
         tempDiv.appendChild(hyperlink);
         document.body.appendChild(tempDiv);
 
-        const HTML = document.querySelector("a.Hyperlink").outerHTML;
-        const TYPE = "text/html";
-        const BLOB = new Blob([HTML], {type: TYPE});
-        navigator.clipboard.write([new ClipboardItem({[TYPE]: BLOB})])
+        const html = document.querySelector('a.Hyperlink');
+        const range = document.createRange();
+        range.selectNode(html);
+        const selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+
+        document.execCommand('copy');
+
+        hyperlink.style.display = 'none';
       });
   });
 
